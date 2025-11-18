@@ -1,6 +1,6 @@
-# Mohamed AH - Portfolio Website
+# Mohamed Abdul Hameed - Portfolio Website
 
-A distinctive CRT terminal-inspired portfolio website showcasing 14 years of system administration experience transitioning into full-stack development and DevOps engineering.
+A distinctive CRT terminal-inspired portfolio website showcasing 14 years of system administration experience transitioning into full-stack development, with expertise in process automation and enterprise system integration.
 
 ## 🎨 Design Features
 
@@ -47,7 +47,6 @@ portfolio/
 ### Update Your Information
 
 **index.html:**
-- Line 57: Update ASCII art if desired
 - Line 61: Your name
 - Lines 152-167: Update work experience details
 - Lines 181-253: Modify project details and links
@@ -83,7 +82,7 @@ To change the color scheme, update CSS variables in `style.css` at the top:
 
 ### Interactive Elements
 
-1. **Typewriter Effect**: Rotating text in hero section
+1. **Typewriter Effect**: Rotating text in hero section highlighting achievements
 2. **Smooth Scrolling**: Navigation links smoothly scroll to sections
 3. **Scroll Animations**: Sections fade in as you scroll
 4. **Hover Effects**: Cards lift and glow on hover
@@ -93,11 +92,11 @@ To change the color scheme, update CSS variables in `style.css` at the top:
 
 ### Sections
 
-- **Hero**: Eye-catching introduction with stats
-- **About**: Personal story and terminal window
-- **Work**: Timeline of experience at BT Group
-- **Projects**: Grid of key projects with descriptions
-- **Stack**: Organized tech skills and certifications
+- **Hero**: Eye-catching introduction with stats (14 years, 3,300+ orders, 10x improvement)
+- **About**: Professional summary and terminal window
+- **Work**: Timeline of experience at BT Applied Technology
+- **Projects**: Key projects including JDE Automation System, Fly.io AI Assistant, PostgreSQL RAG Chatbot, Allyment
+- **Stack**: Organized tech skills with 4 certifications
 - **Contact**: Call-to-action with contact methods
 
 ## 🎯 SEO & Performance
@@ -137,7 +136,7 @@ Free to use and modify for your own portfolio. Attribution appreciated but not r
 
 ## 🤝 Connect
 
-- **Email**: mojed@intigriti.me
+- **Email**: emah84@gmail.com
 - **GitHub**: [Mohamed-AH](https://github.com/Mohamed-AH)
 - **LinkedIn**: [mojed7](https://www.linkedin.com/in/mojed7/)
 
