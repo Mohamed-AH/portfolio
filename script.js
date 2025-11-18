@@ -1,10 +1,10 @@
 // Typewriter Effect
 const phrases = [
-    "Building automated solutions that scale.",
+    "Self-taught Full-Stack Developer.",
     "14 years of system administration expertise.",
-    "Transforming manual processes into code.",
-    "DevOps engineer with production experience.",
-    "Seeking fully remote development roles."
+    "Built automation system processing 3,300+ work orders.",
+    "Achieved 10x efficiency improvement with automation.",
+    "Seeking remote developer roles worldwide."
 ];
 
 let phraseIndex = 0;
@@ -211,10 +211,10 @@ setInterval(() => {
 
 // Console Easter Egg
 console.log('%c$ whoami', 'color: #FF6B35; font-size: 20px; font-family: monospace;');
-console.log('%cMohamed AH - Full-Stack Developer & DevOps Engineer', 'color: #F7931E; font-size: 14px; font-family: monospace;');
+console.log('%cMohamed Abdul Hameed - Full-Stack Developer & Automation Engineer', 'color: #F7931E; font-size: 14px; font-family: monospace;');
 console.log('%c', '');
 console.log('%c$ cat message.txt', 'color: #FF6B35; font-size: 16px; font-family: monospace;');
 console.log('%cThanks for checking out the console! 🚀', 'color: #FFF8DC; font-size: 14px;');
-console.log('%cInterested in working together? Reach out at mojed@intigriti.me', 'color: #FFF8DC; font-size: 14px;');
+console.log('%cInterested in working together? Reach out at emah84@gmail.com', 'color: #FFF8DC; font-size: 14px;');
 console.log('%c', '');
 console.log('%c$ exit', 'color: #FF6B35; font-size: 16px; font-family: monospace;');
