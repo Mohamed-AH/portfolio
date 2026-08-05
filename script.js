@@ -1,220 +1,86 @@
-// Typewriter Effect
-const phrases = [
-    "Self-taught Full-Stack Developer.",
-    "14 years of system administration expertise.",
-    "Built automation system processing 3,300+ work orders.",
-    "Achieved 10x efficiency improvement with automation.",
-    "Seeking remote developer roles worldwide."
-];
+/* ===========================================================
+   Mohamed Abdul Hameed — Portfolio interactions
+   =========================================================== */
 
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typewriterTimeout;
+(function () {
+    'use strict';
 
-function typeWriter() {
-    const typewriterElement = document.getElementById('typewriter');
-    const currentPhrase = phrases[phraseIndex];
-    
-    if (!isDeleting && charIndex <= currentPhrase.length) {
-        typewriterElement.textContent = currentPhrase.substring(0, charIndex);
-        charIndex++;
-        typewriterTimeout = setTimeout(typeWriter, 80);
-    } else if (isDeleting && charIndex >= 0) {
-        typewriterElement.textContent = currentPhrase.substring(0, charIndex);
-        charIndex--;
-        typewriterTimeout = setTimeout(typeWriter, 40);
-    } else if (!isDeleting && charIndex > currentPhrase.length) {
-        setTimeout(() => {
-            isDeleting = true;
-            typeWriter();
-        }, 2000);
-    } else if (isDeleting && charIndex < 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(typeWriter, 500);
-    }
-}
+    /* ---------- Theme toggle (dark default) ---------- */
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlElement = document.documentElement;
 
-// Start typewriter effect when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(typeWriter, 1000);
-});
-
-// Smooth Scroll for Navigation Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+    function applyTheme(theme) {
+        if (theme === 'light') {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+            themeIcon.className = 'fas fa-sun text-amber-400';
+        } else {
+            htmlElement.classList.add('dark');
+            htmlElement.classList.remove('light');
+            themeIcon.className = 'fas fa-moon text-slate-300';
         }
-    });
-});
-
-// Scroll Animation Observer
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe all sections for scroll animation
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        observer.observe(section);
-    });
-    
-    // Immediately show hero section
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.opacity = '1';
-        hero.style.transform = 'translateY(0)';
     }
-});
 
-// Navbar Background on Scroll
-let lastScroll = 0;
-const navbar = document.querySelector('.terminal-header');
+    applyTheme(localStorage.getItem('theme') || 'dark');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.style.boxShadow = '0 0 30px rgba(255, 107, 53, 0.5)';
-    } else {
-        navbar.style.boxShadow = '0 0 20px rgba(255, 107, 53, 0.3)';
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const next = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+            localStorage.setItem('theme', next);
+            applyTheme(next);
+        });
     }
-    
-    lastScroll = currentScroll;
-});
 
-// Add Glitch Effect on Hover to Main Title
-const glitchText = document.querySelector('.glitch-text');
-if (glitchText) {
-    glitchText.addEventListener('mouseenter', () => {
-        glitchText.style.animation = 'none';
-        setTimeout(() => {
-            glitchText.style.animation = 'glitch1 0.3s ease-in-out';
-        }, 10);
-    });
-}
+    /* ---------- Mobile menu ---------- */
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-// Project Card Hover Effects
-document.addEventListener('DOMContentLoaded', () => {
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
+        mobileNavLinks.forEach((link) => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
-    });
-});
+    }
 
-// Animate Stats on Scroll
-const animateStats = () => {
-    const stats = document.querySelectorAll('.stat-number');
-    const observerOptions = {
-        threshold: 0.5
-    };
-    
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
-                const target = entry.target;
-                const text = target.textContent;
-                const hasPlus = text.includes('+');
-                const hasPercent = text.includes('%');
-                const number = parseInt(text.replace(/\D/g, ''));
-                let current = 0;
-                const increment = number / 50;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= number) {
-                        current = number;
-                        clearInterval(timer);
-                    }
-                    let display = Math.floor(current);
-                    if (hasPlus) display += '+';
-                    if (hasPercent) display += '%';
-                    target.textContent = display;
-                }, 30);
-                target.classList.add('animated');
+    /* ---------- Copy email to clipboard ---------- */
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    const copyBtnText = document.getElementById('copyBtnText');
+    const EMAIL = 'emah84@gmail.com';
+
+    if (copyEmailBtn && copyBtnText) {
+        copyEmailBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(EMAIL);
+                copyBtnText.innerText = 'Copied: ' + EMAIL;
+            } catch (err) {
+                window.location.href = 'mailto:' + EMAIL;
+                copyBtnText.innerText = 'Opening email…';
             }
+            setTimeout(() => { copyBtnText.innerText = 'Copy Email'; }, 2500);
         });
-    }, observerOptions);
-    
-    stats.forEach(stat => statsObserver.observe(stat));
-};
-
-document.addEventListener('DOMContentLoaded', animateStats);
-
-// Add Terminal Cursor to Terminal Windows
-document.addEventListener('DOMContentLoaded', () => {
-    const terminalBodies = document.querySelectorAll('.terminal-body');
-    terminalBodies.forEach(body => {
-        const cursor = document.createElement('span');
-        cursor.style.cssText = `
-            display: inline-block;
-            width: 8px;
-            height: 16px;
-            background: var(--crt-amber);
-            animation: blink 1s step-end infinite;
-            margin-left: 4px;
-        `;
-        body.appendChild(cursor);
-    });
-});
-
-// Parallax Effect for Hero Section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero && scrolled < window.innerHeight) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
-});
 
-// Add CRT Flicker Effect Randomly
-setInterval(() => {
-    const body = document.body;
-    if (Math.random() < 0.05) {
-        body.style.opacity = '0.98';
-        setTimeout(() => {
-            body.style.opacity = '1';
-        }, 50);
+    /* ---------- Scroll reveal ---------- */
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && revealEls.length) {
+        const io = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach((el) => io.observe(el));
+    } else {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
     }
-}, 3000);
 
-// Console Easter Egg
-console.log('%c$ whoami', 'color: #FF6B35; font-size: 20px; font-family: monospace;');
-console.log('%cMohamed Abdul Hameed - Full-Stack Developer & Automation Engineer', 'color: #F7931E; font-size: 14px; font-family: monospace;');
-console.log('%c', '');
-console.log('%c$ cat message.txt', 'color: #FF6B35; font-size: 16px; font-family: monospace;');
-console.log('%cThanks for checking out the console! 🚀', 'color: #FFF8DC; font-size: 14px;');
-console.log('%cInterested in working together? Reach out at emah84@gmail.com', 'color: #FFF8DC; font-size: 14px;');
-console.log('%c', '');
-console.log('%c$ exit', 'color: #FF6B35; font-size: 16px; font-family: monospace;');
+    /* ---------- Footer year ---------- */
+    const yearEl = document.getElementById('footerYear');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+})();
