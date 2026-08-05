@@ -1,145 +1,56 @@
-# Mohamed Abdul Hameed - Portfolio Website
+# Mohamed Abdul Hameed — Portfolio
 
-A distinctive CRT terminal-inspired portfolio website showcasing 14 years of system administration experience transitioning into full-stack development, with expertise in process automation and enterprise system integration.
+Personal portfolio for a Full-Stack Developer & Automation Engineer — 14 years of
+production experience, from enterprise automation to full-stack platforms and
+real-time data visualization. CKA and Oracle Cloud certified.
 
-## 🎨 Design Features
+Live: hosted on GitHub Pages · [github.com/Mohamed-AH](https://github.com/Mohamed-AH)
 
-- **Warm CRT Terminal Aesthetic**: Amber and orange color palette inspired by vintage computer monitors
-- **Unique Typography**: Fraunces for headings, Crimson Pro for body text, JetBrains Mono for code
-- **Atmospheric Effects**: Scanlines, noise overlay, and glitch animations
-- **Smooth Animations**: Typewriter effect, scroll animations, and interactive micro-interactions
-- **Fully Responsive**: Mobile-friendly design that adapts to all screen sizes
+## Design
 
-## 🚀 Quick Start - GitHub Pages Deployment
+- Modern glass / gradient UI with a subtle animated glow and dot-grid background
+- Dark theme by default, with a light-mode toggle (persisted in `localStorage`)
+- Fully responsive (mobile → desktop), scroll-reveal animations, reduced-motion aware
+- Inter + Fira Code typography; Tailwind CSS (CDN) for utilities, custom CSS for effects
 
-### Option 1: User Site (Recommended)
+## Sections
 
-1. Create a new repository named `Mohamed-AH.github.io`
-2. Upload all files (index.html, style.css, script.js) to the repository
-3. Go to Settings → Pages
-4. Under "Build and deployment", select "Deploy from a branch"
-5. Select branch: `main` and folder: `/ (root)`
-6. Click Save
-7. Your site will be live at `https://mohamed-ah.github.io`
+- **About / Hero** — positioning, headline stats, and a live "status" terminal card
+- **Experience** — System Administrator & Automation Engineer, BT Applied Technology
+- **Projects** — two production flagships, two full-stack products, three real-time visualizers
+- **Skills** — Frontend · Backend & Cloud · Systems & DevOps
+- **Certifications** — CKA + 3× Oracle Cloud (with verification links)
+- **Contact** — email, GitHub, LinkedIn
 
-### Option 2: Project Site
+## Featured projects
 
-1. Create a new repository with any name (e.g., "portfolio")
-2. Upload all files to the repository
-3. Go to Settings → Pages
-4. Select source: "Deploy from a branch"
-5. Select branch: `main` and folder: `/ (root)`
-6. Click Save
-7. Your site will be live at `https://mohamed-ah.github.io/portfolio`
+| Project | What it is | Links |
+|---|---|---|
+| JDE Work Order Automation | Production enterprise automation (Python/JS/Claude API) — 3,300+ orders, 90% time reduction | Proprietary |
+| Fablewurud — rasmihassan.com | Full-stack content platform: search over 3,200+ audio / 116 PDF / 300+ articles (Node, MongoDB, Cloudflare R2, OCI, Sentry + Grafana) | [Live](https://rasmihassan.com) · [Source](https://github.com/Mohamed-AH/fablewurud) |
+| Hafiz | Bilingual Quran-memorization PWA (Node/Express, MongoDB, OAuth+JWT, on-device speech) | [Live](https://hafiz-frontend.onrender.com) · [Source](https://github.com/Mohamed-AH/quran) |
+| CRM Builder | Modular, offline-first CRM (Node/Express, MongoDB, IndexedDB, OAuth) | [Source](https://github.com/Mohamed-AH/crmbuilder) |
+| SpaceWiki | Interactive 3D orbital / astronomical directory (Three.js) | [Live](https://expospace.netlify.app/) · [Source](https://github.com/Mohamed-AH/spacewiki) |
+| WhalePulse 3D | Live Bitcoin mempool visualizer (Three.js, WebSocket) | [Live](https://btcwatch.netlify.app/) · [Source](https://github.com/Mohamed-AH/whale) |
+| TransitWatch | Real-time maritime AIS dashboard on Cloudflare edge (Leaflet, Workers) | [Live](https://hormove.pages.dev/) · [Source](https://github.com/Mohamed-AH/TransitWatch) |
 
-## 📁 File Structure
+## File structure
 
 ```
 portfolio/
-├── index.html      # Main HTML structure
-├── style.css       # CRT terminal styling
-├── script.js       # Interactive features
-└── README.md       # This file
+├── index.html   # Structure & content
+├── style.css    # Custom styles (glass, glow, timeline, light-mode, reveal)
+├── script.js    # Theme toggle, mobile menu, copy-email, scroll reveal
+└── README.md
 ```
 
-## 🛠 Customization
+## Deployment
 
-### Update Your Information
+Static site — deploy via GitHub Pages: Settings → Pages → Deploy from branch
+(`main`, root). No build step; Tailwind and icons load from CDN.
 
-**index.html:**
-- Line 61: Your name
-- Lines 152-167: Update work experience details
-- Lines 181-253: Modify project details and links
-- Lines 344-361: Update certification links
-- Lines 385-401: Change contact information
-
-**script.js:**
-- Lines 2-8: Customize typewriter phrases
-
-**style.css:**
-- Lines 2-11: Adjust color scheme if desired
-- Change `--crt-amber` and `--crt-orange` to your preferred colors
-
-### Color Scheme
-
-Current colors:
-- Primary: `#FF6B35` (Amber)
-- Secondary: `#F7931E` (Orange)
-- Background: `#0A0908` (Deep Black)
-- Text: `#FFF8DC` (Warm White)
-
-To change the color scheme, update CSS variables in `style.css` at the top:
-
-```css
-:root {
-    --crt-amber: #YOUR_COLOR;
-    --crt-orange: #YOUR_COLOR;
-    --crt-glow: #YOUR_COLOR;
-}
-```
-
-## ✨ Features
-
-### Interactive Elements
-
-1. **Typewriter Effect**: Rotating text in hero section highlighting achievements
-2. **Smooth Scrolling**: Navigation links smoothly scroll to sections
-3. **Scroll Animations**: Sections fade in as you scroll
-4. **Hover Effects**: Cards lift and glow on hover
-5. **CRT Scanlines**: Authentic terminal aesthetic
-6. **Glitch Animation**: Cyberpunk-style text effects
-7. **Console Easter Egg**: Open browser console for a surprise
-
-### Sections
-
-- **Hero**: Eye-catching introduction with stats (14 years, 3,300+ orders, 10x improvement)
-- **About**: Professional summary and terminal window
-- **Work**: Timeline of experience at BT Applied Technology
-- **Projects**: Key projects including JDE Automation System, Fly.io AI Assistant, PostgreSQL RAG Chatbot, Allyment
-- **Stack**: Organized tech skills with 4 certifications
-- **Contact**: Call-to-action with contact methods
-
-## 🎯 SEO & Performance
-
-The site is optimized for:
-- Fast loading (vanilla JS, no frameworks)
-- Mobile responsiveness
-- Semantic HTML
-- Meta descriptions
-- Accessible design
-
-## 📱 Responsive Breakpoints
-
-- Desktop: 1200px+
-- Tablet: 768px - 1199px
-- Mobile: < 768px
-
-## 🌐 Browser Compatibility
-
-Tested and working on:
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers
-
-## 💡 Tips
-
-1. **Keep it Updated**: Regularly update your projects and experience
-2. **Add Analytics**: Consider adding Google Analytics to track visitors
-3. **Custom Domain**: You can add a custom domain in GitHub Pages settings
-4. **Performance**: Images should be optimized (webp format, compressed)
-5. **Testing**: Test on multiple devices before going live
-
-## 📝 License
-
-Free to use and modify for your own portfolio. Attribution appreciated but not required.
-
-## 🤝 Connect
+## Contact
 
 - **Email**: emah84@gmail.com
 - **GitHub**: [Mohamed-AH](https://github.com/Mohamed-AH)
 - **LinkedIn**: [mojed7](https://www.linkedin.com/in/mojed7/)
-
----
-
-Built with vanilla HTML/CSS/JS • No frameworks • Pure awesomeness ✨
