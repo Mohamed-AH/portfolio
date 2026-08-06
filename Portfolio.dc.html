@@ -1,40 +1,75 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:oklch(0.165 0.008 60);
+  --surface:oklch(0.205 0.009 60);
+  --surface-2:oklch(0.245 0.010 60);
+  --text:oklch(0.955 0.006 80);
+  --muted:oklch(0.715 0.014 70);
+  --faint:oklch(0.645 0.014 70);
+  --border:oklch(0.305 0.011 60);
+  --border-strong:oklch(0.40 0.014 60);
+  --accent:oklch(0.745 0.155 42);
+  --accent-ink:oklch(0.20 0.03 42);
+  --shadow:0 1px 2px oklch(0 0 0 / 0.4);
+}
+html[data-theme="light"]{
+  --bg:oklch(0.975 0.006 80);
+  --surface:oklch(0.995 0.003 80);
+  --surface-2:oklch(0.945 0.008 80);
+  --text:oklch(0.225 0.010 60);
+  --muted:oklch(0.455 0.012 60);
+  --faint:oklch(0.495 0.012 60);
+  --border:oklch(0.885 0.008 70);
+  --border-strong:oklch(0.775 0.012 70);
+  --accent:oklch(0.545 0.160 38);
+  --accent-ink:oklch(0.99 0.01 60);
+  --shadow:0 1px 2px oklch(0 0 0 / 0.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Archivo',system-ui,sans-serif;font-synthesis-weight:none;-webkit-font-smoothing:antialiased;text-wrap:pretty;transition:background-color .25s ease,color .25s ease}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0;padding:0}
+ul,ol{list-style:none}
+a{color:var(--text);text-decoration:none}
+a:hover{color:var(--accent)}
+::selection{background:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+[data-nav] a[aria-current="true"]{color:var(--text)}
+[data-nav] a[aria-current="true"] [data-bar]{background:var(--accent);width:22px}
+[data-theme-opt][aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+[data-theme-opt][aria-pressed="true"]:hover{color:var(--accent-ink)}
+[data-skip]{position:absolute;left:-9999px}
+[data-skip]:focus{left:16px;top:16px;z-index:99;padding:10px 16px;background:var(--accent);color:var(--accent-ink)}
+@media (max-width:1000px){
+  [data-sidebar]{position:static !important;padding-bottom:8px !important;border-bottom:1px solid var(--border)}
+  [data-navlist]{flex-direction:row !important;flex-wrap:wrap;gap:4px 18px !important}
+  [data-navlist] [data-bar]{display:none !important}
+  [data-sidebar-foot]{margin-top:20px !important}
+  [data-flag-media]{flex:1 1 100% !important}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+<script>
+(function(){var p=localStorage.getItem('mah-theme')||'system';
+var r=p==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):p;
+document.documentElement.setAttribute('data-theme',r);})();
+</script>
+</helmet>
 
-<script>
-(function(){var p=localStorage.getItem('mah-theme')||'system';
-var r=p==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):p;
-document.documentElement.setAttribute('data-theme',r);})();
-</script>
-<title>Mohamed Abdul Hameed — Full-Stack Developer &amp; Automation Engineer</title>
-<meta name="description" content="Full-stack developer and automation engineer. Built a production Oracle JD Edwards automation system processing 3,300+ work orders with a 90% reduction in manual handling. CKA and Oracle Cloud certified.">
-<meta name="theme-color" content="#211d1a" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f7f4f0" media="(prefers-color-scheme: light)">
-<link rel="canonical" href="https://mohamed-ah.github.io/portfolio/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://mohamed-ah.github.io/portfolio/">
-<meta property="og:title" content="Mohamed Abdul Hameed — Full-Stack Developer &amp; Automation Engineer">
-<meta property="og:description" content="Production automation, full-stack platforms, and real-time visualizers. CKA and Oracle Cloud certified.">
-<meta property="og:image" content="https://mohamed-ah.github.io/portfolio/images/fablewurud.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23211d1a'/><text x='16' y='23' font-family='system-ui,sans-serif' font-size='19' font-weight='700' fill='%23e8763f' text-anchor='middle'>M</text></svg>">
-<link rel="stylesheet" href="style.css">
-<script>
-(function(){var p=localStorage.getItem('mah-theme')||'system';
-var r=p==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):p;
-document.documentElement.setAttribute('data-theme',r);})();
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Mohamed Abdul Hameed","jobTitle":"Full-Stack Developer & Automation Engineer","email":"mailto:emah84@gmail.com","url":"https://mohamed-ah.github.io/portfolio/","sameAs":["https://github.com/Mohamed-AH","https://www.linkedin.com/in/mojed7/"],"knowsAbout":["JavaScript","Node.js","Python","MongoDB","Kubernetes","Three.js","Oracle JD Edwards EnterpriseOne"]}
-</script>
-</head>
-<body>
 <a href="#main" data-skip="1">Skip to content</a>
 
 <div style="min-height:100vh;background:var(--bg)">
@@ -57,18 +92,18 @@ document.documentElement.setAttribute('data-theme',r);})();
 
       <div data-sidebar-foot="1" style="margin-top:clamp(26px,3.5vw,48px);display:flex;flex-wrap:wrap;align-items:center;gap:10px">
         <div role="group" aria-label="Colour theme" style="display:inline-flex;background:var(--surface);border:1px solid var(--border-strong);border-radius:2px;overflow:hidden">
-          <button data-theme-opt="light" type="button" title="Light" aria-label="Light theme" data-action="setLight" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;color:var(--muted);border:0;border-right:1px solid var(--border);cursor:pointer;padding:0" class="hx1">
+          <button data-theme-opt="light" type="button" title="Light" aria-label="Light theme" onClick="{{ setLight }}" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;color:var(--muted);border:0;border-right:1px solid var(--border);cursor:pointer;padding:0" style-hover="color:var(--text)">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.4v2.4M12 19.2v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.4 12h2.4M19.2 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"></path></svg>
           </button>
-          <button data-theme-opt="system" type="button" title="Match system" aria-label="Match system theme" data-action="setSystem" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;color:var(--muted);border:0;border-right:1px solid var(--border);cursor:pointer;padding:0" class="hx2">
+          <button data-theme-opt="system" type="button" title="Match system" aria-label="Match system theme" onClick="{{ setSystem }}" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;color:var(--muted);border:0;border-right:1px solid var(--border);cursor:pointer;padding:0" style-hover="color:var(--text)">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4" width="18.8" height="12.4" rx="1.6"></rect><path d="M8.4 20h7.2M12 16.4V20"></path></svg>
           </button>
-          <button data-theme-opt="dark" type="button" title="Dark" aria-label="Dark theme" data-action="setDark" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;color:var(--muted);border:0;cursor:pointer;padding:0" class="hx3">
+          <button data-theme-opt="dark" type="button" title="Dark" aria-label="Dark theme" onClick="{{ setDark }}" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;color:var(--muted);border:0;cursor:pointer;padding:0" style-hover="color:var(--text)">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 1 1 9.4 3.5a6.9 6.9 0 0 0 11.1 11.1z"></path></svg>
           </button>
         </div>
-        <a href="https://github.com/Mohamed-AH" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;border:1px solid var(--border);border-radius:2px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--muted);padding:0 12px" class="hx4">GH</a>
-        <a href="https://www.linkedin.com/in/mojed7/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;border:1px solid var(--border);border-radius:2px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--muted);padding:0 12px" class="hx5">IN</a>
+        <a href="https://github.com/Mohamed-AH" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;border:1px solid var(--border);border-radius:2px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--muted);padding:0 12px" style-hover="border-color:var(--border-strong);color:var(--text)">GH</a>
+        <a href="https://www.linkedin.com/in/mojed7/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;border:1px solid var(--border);border-radius:2px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--muted);padding:0 12px" style-hover="border-color:var(--border-strong);color:var(--text)">IN</a>
       </div>
     </aside>
 
@@ -89,8 +124,8 @@ document.documentElement.setAttribute('data-theme',r);})();
         </p>
 
         <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(26px,3vw,36px)">
-          <a href="#work" style="display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;background:var(--accent);color:var(--accent-ink);border-radius:2px;font-size:15px;font-weight:600" class="hx6">View the work <span style="font-family:'JetBrains Mono',monospace">→</span></a>
-          <a href="mailto:emah84@gmail.com" style="display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border:1px solid var(--border-strong);border-radius:2px;font-size:15px;font-weight:500;color:var(--text)" class="hx7">Get in touch</a>
+          <a href="#work" style="display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;background:var(--accent);color:var(--accent-ink);border-radius:2px;font-size:15px;font-weight:600" style-hover="filter:brightness(1.08);color:var(--accent-ink)">View the work <span style="font-family:'JetBrains Mono',monospace">→</span></a>
+          <a href="mailto:emah84@gmail.com" style="display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border:1px solid var(--border-strong);border-radius:2px;font-size:15px;font-weight:500;color:var(--text)" style-hover="border-color:var(--accent);color:var(--accent)">Get in touch</a>
         </div>
 
         <dl style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;margin-top:clamp(40px,5vw,64px);background:var(--border);border:1px solid var(--border)">
@@ -159,7 +194,7 @@ document.documentElement.setAttribute('data-theme',r);})();
 
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(20px,2.5vw,32px);margin-top:clamp(26px,3vw,40px)">
 
-          <article style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:clamp(20px,2.5vw,36px);padding:clamp(20px,2.5vw,28px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" class="hx8">
+          <article style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:clamp(20px,2.5vw,36px);padding:clamp(20px,2.5vw,28px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" style-hover="border-color:var(--border-strong)">
             <figure data-flag-media="1" style="flex:1 1 320px;margin:0;min-width:0">
               <img src="images/jde.png" alt="The automation running against Oracle JD Edwards: the Work With Work Orders screen beside a browser console showing a batch summary of processed work orders." loading="lazy" decoding="async" width="1366" height="646" style="display:block;width:100%;height:auto;aspect-ratio:1366/646;object-fit:cover;background:var(--surface-2);border:1px solid var(--border);border-radius:2px">
             </figure>
@@ -180,7 +215,7 @@ document.documentElement.setAttribute('data-theme',r);})();
             </div>
           </article>
 
-          <article style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:clamp(20px,2.5vw,36px);padding:clamp(20px,2.5vw,28px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" class="hx9">
+          <article style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:clamp(20px,2.5vw,36px);padding:clamp(20px,2.5vw,28px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" style-hover="border-color:var(--border-strong)">
             <figure data-flag-media="1" style="flex:1 1 320px;margin:0;min-width:0">
               <img src="images/fablewurud.png" alt="The rasmihassan.com home page: an audio transcript search bar over a green hero, with counts of 1,693 lectures and 329 articles." loading="lazy" decoding="async" width="1366" height="646" style="display:block;width:100%;height:auto;aspect-ratio:1366/646;object-fit:cover;background:var(--surface-2);border:1px solid var(--border);border-radius:2px">
             </figure>
@@ -198,13 +233,13 @@ document.documentElement.setAttribute('data-theme',r);})();
                 <li style="padding:5px 9px;border:1px solid var(--border);border-radius:2px">Sentry + Grafana</li>
               </ul>
               <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:20px">
-                <a href="https://rasmihassan.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 18px;background:var(--accent);color:var(--accent-ink);border-radius:2px;font-size:14px;font-weight:600" class="hx10">Live site</a>
-                <a href="https://github.com/Mohamed-AH/fablewurud" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx11">Source</a>
+                <a href="https://rasmihassan.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 18px;background:var(--accent);color:var(--accent-ink);border-radius:2px;font-size:14px;font-weight:600" style-hover="filter:brightness(1.08);color:var(--accent-ink)">Live site</a>
+                <a href="https://github.com/Mohamed-AH/fablewurud" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" style-hover="border-color:var(--accent);color:var(--accent)">Source</a>
               </div>
             </div>
           </article>
 
-          <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" class="hx12">
+          <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" style-hover="border-color:var(--border-strong)">
             <img src="images/hafiz.png" alt="The Hafiz dashboard: pages from Juz, Juz completed, day streak and completion cards above Today, Juz, History, Statistics, Leaderboard and Recite tabs." loading="lazy" decoding="async" width="1366" height="646" style="display:block;width:100%;height:auto;aspect-ratio:1366/646;object-fit:cover;background:var(--surface-2);border:1px solid var(--border);border-radius:2px">
             <p style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">Full-stack · PWA</p>
             <h3 style="margin-top:10px;font-size:20px;font-weight:600;letter-spacing:-0.02em">Hafiz</h3>
@@ -218,12 +253,12 @@ document.documentElement.setAttribute('data-theme',r);})();
               <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">PWA</li>
             </ul>
             <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:18px">
-              <a href="https://hafiz-frontend.onrender.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx13">Live demo</a>
-              <a href="https://github.com/Mohamed-AH/quran" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx14">Source</a>
+              <a href="https://hafiz-frontend.onrender.com" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" style-hover="border-color:var(--accent);color:var(--accent)">Live demo</a>
+              <a href="https://github.com/Mohamed-AH/quran" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" style-hover="border-color:var(--accent);color:var(--accent)">Source</a>
             </div>
           </article>
 
-          <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" class="hx15">
+          <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" style-hover="border-color:var(--border-strong)">
             <img src="images/crm.png" alt="The CRM Builder admin view for a Bright Bakery workspace: a module sidebar, metric cards for accounts, records and modules built, signup and active-user charts, and an accounts table." loading="lazy" decoding="async" width="1440" height="681" style="display:block;width:100%;height:auto;aspect-ratio:1366/646;object-fit:cover;background:var(--surface-2);border:1px solid var(--border);border-radius:2px">
             <p style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">Full-stack · Offline-first</p>
             <h3 style="margin-top:10px;font-size:20px;font-weight:600;letter-spacing:-0.02em">CRM Builder</h3>
@@ -237,11 +272,11 @@ document.documentElement.setAttribute('data-theme',r);})();
               <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">PWA</li>
             </ul>
             <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:18px">
-              <a href="https://github.com/Mohamed-AH/crmbuilder" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx16">View source</a>
+              <a href="https://github.com/Mohamed-AH/crmbuilder" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" style-hover="border-color:var(--accent);color:var(--accent)">View source</a>
             </div>
           </article>
 
-          <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" class="hx17">
+          <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" style-hover="border-color:var(--border-strong)">
             <img src="images/spacewiki.png" alt="The SpaceWiki mission console replaying the Voyager grand tour, with probe mission cards beside a star field showing Jupiter, Saturn and a plotted trajectory." loading="lazy" decoding="async" width="1366" height="646" style="display:block;width:100%;height:auto;aspect-ratio:1366/646;object-fit:cover;background:var(--surface-2);border:1px solid var(--border);border-radius:2px">
             <p style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">3D visualization</p>
             <h3 style="margin-top:10px;font-size:20px;font-weight:600;letter-spacing:-0.02em">SpaceWiki</h3>
@@ -254,12 +289,12 @@ document.documentElement.setAttribute('data-theme',r);})();
               <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">CelesTrak API</li>
             </ul>
             <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:18px">
-              <a href="https://expospace.netlify.app/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx18">Live demo</a>
-              <a href="https://github.com/Mohamed-AH/spacewiki" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx19">Source</a>
+              <a href="https://expospace.netlify.app/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" style-hover="border-color:var(--accent);color:var(--accent)">Live demo</a>
+              <a href="https://github.com/Mohamed-AH/spacewiki" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" style-hover="border-color:var(--accent);color:var(--accent)">Source</a>
             </div>
           </article>
 
-          <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" class="hx20">
+          <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" style-hover="border-color:var(--border-strong)">
             <img src="images/whalepulse.png" alt="WhalePulse 3D: a wireframe globe surrounded by a BTC-USD price panel, network relay node list, whale threshold legend and a live on-chain transaction feed." loading="lazy" decoding="async" width="1366" height="646" style="display:block;width:100%;height:auto;aspect-ratio:1366/646;object-fit:cover;background:var(--surface-2);border:1px solid var(--border);border-radius:2px">
             <p style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">Real-time · 3D</p>
             <h3 style="margin-top:10px;font-size:20px;font-weight:600;letter-spacing:-0.02em">WhalePulse 3D</h3>
@@ -271,12 +306,12 @@ document.documentElement.setAttribute('data-theme',r);})();
               <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">Blockchain API</li>
             </ul>
             <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:18px">
-              <a href="https://btcwatch.netlify.app/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx21">Live demo</a>
-              <a href="https://github.com/Mohamed-AH/whale" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx22">Source</a>
+              <a href="https://btcwatch.netlify.app/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" style-hover="border-color:var(--accent);color:var(--accent)">Live demo</a>
+              <a href="https://github.com/Mohamed-AH/whale" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" style-hover="border-color:var(--accent);color:var(--accent)">Source</a>
             </div>
           </article>
 
-          <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" class="hx23">
+          <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" style-hover="border-color:var(--border-strong)">
             <img src="images/transitwatch.png" alt="TransitRadar focused on the Strait of Hormuz: a vessel map with a transit risk index of 7.2 and panels for energy flow, vessels in view, 24-hour transits and threat interference." loading="lazy" decoding="async" width="1366" height="646" style="display:block;width:100%;height:auto;aspect-ratio:1366/646;object-fit:cover;background:var(--surface-2);border:1px solid var(--border);border-radius:2px">
             <p style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">Real-time · Edge backend</p>
             <h3 style="margin-top:10px;font-size:20px;font-weight:600;letter-spacing:-0.02em">TransitWatch</h3>
@@ -288,8 +323,8 @@ document.documentElement.setAttribute('data-theme',r);})();
               <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">Cloudflare Workers</li>
             </ul>
             <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:18px">
-              <a href="https://hormove.pages.dev/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx24">Live demo</a>
-              <a href="https://github.com/Mohamed-AH/TransitWatch" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx25">Source</a>
+              <a href="https://hormove.pages.dev/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" style-hover="border-color:var(--accent);color:var(--accent)">Live demo</a>
+              <a href="https://github.com/Mohamed-AH/TransitWatch" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" style-hover="border-color:var(--accent);color:var(--accent)">Source</a>
             </div>
           </article>
 
@@ -338,22 +373,22 @@ document.documentElement.setAttribute('data-theme',r);})();
           <h2 style="font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.02em">Certifications</h2>
         </div>
         <ul style="margin-top:8px">
-          <li><a href="https://www.cncf.io/training/certification/cka/" target="_blank" rel="noopener noreferrer" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;padding:20px 0;border-bottom:1px solid var(--border)" class="hx26">
+          <li><a href="https://www.cncf.io/training/certification/cka/" target="_blank" rel="noopener noreferrer" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;padding:20px 0;border-bottom:1px solid var(--border)" style-hover="color:var(--accent)">
             <span style="flex:1 1 260px;font-size:17px;font-weight:600;letter-spacing:-0.01em">Certified Kubernetes Administrator (CKA)</span>
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint)">Linux Foundation · 2025</span>
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);margin-left:auto">Verify →</span>
           </a></li>
-          <li><a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=60882DCA6E261E11C1AF96FB4957DC07A514F83124F189562B987E46E0A71302" target="_blank" rel="noopener noreferrer" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;padding:20px 0;border-bottom:1px solid var(--border)" class="hx27">
+          <li><a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=60882DCA6E261E11C1AF96FB4957DC07A514F83124F189562B987E46E0A71302" target="_blank" rel="noopener noreferrer" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;padding:20px 0;border-bottom:1px solid var(--border)" style-hover="color:var(--accent)">
             <span style="flex:1 1 260px;font-size:17px;font-weight:600;letter-spacing:-0.01em">OCI Migration Architect Professional</span>
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint)">Oracle Cloud · 2025</span>
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);margin-left:auto">Verify →</span>
           </a></li>
-          <li><a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=1DA1222DD775302EFB41998D698EE56571588BFA23F7896CBBA8FFBF1832431F" target="_blank" rel="noopener noreferrer" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;padding:20px 0;border-bottom:1px solid var(--border)" class="hx28">
+          <li><a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=1DA1222DD775302EFB41998D698EE56571588BFA23F7896CBBA8FFBF1832431F" target="_blank" rel="noopener noreferrer" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;padding:20px 0;border-bottom:1px solid var(--border)" style-hover="color:var(--accent)">
             <span style="flex:1 1 260px;font-size:17px;font-weight:600;letter-spacing:-0.01em">OCI Networking Professional</span>
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint)">Oracle Cloud · 2025</span>
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);margin-left:auto">Verify →</span>
           </a></li>
-          <li><a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=2D72FF046B70B15A50F8E477DF5DF839924BB4119CD6C0B477B544E7389FB09E" target="_blank" rel="noopener noreferrer" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;padding:20px 0;border-bottom:1px solid var(--border)" class="hx29">
+          <li><a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=2D72FF046B70B15A50F8E477DF5DF839924BB4119CD6C0B477B544E7389FB09E" target="_blank" rel="noopener noreferrer" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;padding:20px 0;border-bottom:1px solid var(--border)" style-hover="color:var(--accent)">
             <span style="flex:1 1 260px;font-size:17px;font-weight:600;letter-spacing:-0.01em">OCI Generative AI Professional</span>
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint)">Oracle Cloud · 2024</span>
             <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);margin-left:auto">Verify →</span>
@@ -369,23 +404,87 @@ document.documentElement.setAttribute('data-theme',r);})();
         <h3 style="margin-top:clamp(28px,3.5vw,44px);max-width:20ch;font-size:clamp(30px,4.6vw,54px);font-weight:600;letter-spacing:-0.03em;line-height:1.05">Building a team? Let's see if I fit.</h3>
         <p style="margin-top:20px;max-width:56ch;font-size:clamp(16px,1.3vw,18px);line-height:1.65;color:var(--muted)">I'm open to remote full-stack, backend, or automation roles worldwide. If any of the work above lines up with what you're building, I'd be glad to walk you through it.</p>
         <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(26px,3vw,36px)">
-          <a href="mailto:emah84@gmail.com" style="display:inline-flex;align-items:center;min-height:48px;padding:0 22px;background:var(--accent);color:var(--accent-ink);border-radius:2px;font-size:15px;font-weight:600" class="hx30">emah84@gmail.com</a>
-          <button type="button" data-action="copyEmail" data-copy-btn="1" style="display:inline-flex;align-items:center;min-height:48px;padding:0 22px;background:transparent;color:var(--text);border:1px solid var(--border-strong);border-radius:2px;font-family:'Archivo',sans-serif;font-size:15px;font-weight:500;cursor:pointer" class="hx31">Copy email</button>
+          <a href="mailto:emah84@gmail.com" style="display:inline-flex;align-items:center;min-height:48px;padding:0 22px;background:var(--accent);color:var(--accent-ink);border-radius:2px;font-size:15px;font-weight:600" style-hover="filter:brightness(1.08);color:var(--accent-ink)">emah84@gmail.com</a>
+          <button type="button" onClick="{{ copyEmail }}" data-copy-btn="1" style="display:inline-flex;align-items:center;min-height:48px;padding:0 22px;background:transparent;color:var(--text);border:1px solid var(--border-strong);border-radius:2px;font-family:'Archivo',sans-serif;font-size:15px;font-weight:500;cursor:pointer" style-hover="border-color:var(--accent);color:var(--accent)">Copy email</button>
         </div>
       </section>
 
       <footer style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:clamp(60px,8vw,110px);padding-top:24px;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--faint)">
         <p>© <span data-year="1">2026</span> Mohamed Abdul Hameed</p>
         <div style="display:flex;flex-wrap:wrap;gap:20px">
-          <a href="https://github.com/Mohamed-AH" target="_blank" rel="noopener noreferrer" style="color:inherit" class="hx32">GitHub</a>
-          <a href="https://www.linkedin.com/in/mojed7/" target="_blank" rel="noopener noreferrer" style="color:inherit" class="hx33">LinkedIn</a>
-          <a href="#main" style="color:inherit" class="hx34">Back to top ↑</a>
+          <a href="https://github.com/Mohamed-AH" target="_blank" rel="noopener noreferrer" style="color:inherit" style-hover="color:var(--accent)">GitHub</a>
+          <a href="https://www.linkedin.com/in/mojed7/" target="_blank" rel="noopener noreferrer" style="color:inherit" style-hover="color:var(--accent)">LinkedIn</a>
+          <a href="#main" style="color:inherit" style-hover="color:var(--accent)">Back to top ↑</a>
         </div>
       </footer>
 
     </main>
   </div>
 </div>
-<script src="script.js"></script>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document.documentElement;
+    this.pref = localStorage.getItem('mah-theme') || 'system';
+    this.paintTheme();
+
+    this.mq = window.matchMedia('(prefers-color-scheme: light)');
+    this.onMQ = () => { if (this.pref === 'system') this.paintTheme(); };
+    this.mq.addEventListener('change', this.onMQ);
+
+    const y = document.querySelector('[data-year]');
+    if (y) y.textContent = new Date().getFullYear();
+
+    const links = Array.from(document.querySelectorAll('[data-nav] a'));
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    if (sections.length) {
+      this.io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) this.active = e.target.id; });
+        links.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + this.active ? 'true' : 'false'));
+      }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+      sections.forEach(s => this.io.observe(s));
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.mq) this.mq.removeEventListener('change', this.onMQ);
+    if (this.io) this.io.disconnect();
+  }
+
+  paintTheme() {
+    const resolved = this.pref === 'system'
+      ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+      : this.pref;
+    document.documentElement.setAttribute('data-theme', resolved);
+    document.querySelectorAll('[data-theme-opt]').forEach(b => {
+      const on = b.getAttribute('data-theme-opt') === this.pref;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.style.background = on ? 'var(--accent)' : 'transparent';
+      b.style.color = on ? 'var(--accent-ink)' : 'var(--muted)';
+    });
+  }
+
+  setPref(p) {
+    this.pref = p;
+    localStorage.setItem('mah-theme', p);
+    this.paintTheme();
+  }
+
+  renderVals() {
+    return {
+      setLight: () => this.setPref('light'),
+      setSystem: () => this.setPref('system'),
+      setDark: () => this.setPref('dark'),
+      copyEmail: async (e) => {
+        const btn = e.currentTarget;
+        try { await navigator.clipboard.writeText('emah84@gmail.com'); btn.textContent = 'Copied ✓'; }
+        catch (err) { window.location.href = 'mailto:emah84@gmail.com'; btn.textContent = 'Opening…'; }
+        setTimeout(() => { btn.textContent = 'Copy email'; }, 2200);
+      }
+    };
+  }
+}
+</script>
 </body>
 </html>

@@ -1,86 +1,73 @@
-/* ===========================================================
-   Mohamed Abdul Hameed — Portfolio interactions
-   =========================================================== */
-
 (function () {
-    'use strict';
+  'use strict';
 
-    /* ---------- Theme toggle (dark default) ---------- */
-    const themeToggleBtn = document.getElementById('themeToggleBtn');
-    const themeIcon = document.getElementById('themeIcon');
-    const htmlElement = document.documentElement;
+  var STORE = 'mah-theme';
+  var pref = localStorage.getItem(STORE) || 'system';
 
-    function applyTheme(theme) {
-        if (theme === 'light') {
-            htmlElement.classList.remove('dark');
-            htmlElement.classList.add('light');
-            themeIcon.className = 'fas fa-sun text-amber-400';
-        } else {
-            htmlElement.classList.add('dark');
-            htmlElement.classList.remove('light');
-            themeIcon.className = 'fas fa-moon text-slate-300';
-        }
+  function paint() {
+    var resolved = pref === 'system'
+      ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+      : pref;
+    document.documentElement.setAttribute('data-theme', resolved);
+
+    var opts = document.querySelectorAll('[data-theme-opt]');
+    for (var i = 0; i < opts.length; i++) {
+      var b = opts[i];
+      var on = b.getAttribute('data-theme-opt') === pref;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.style.background = on ? 'var(--accent)' : 'transparent';
+      b.style.color = on ? 'var(--accent-ink)' : 'var(--muted)';
     }
+  }
 
-    applyTheme(localStorage.getItem('theme') || 'dark');
+  function setPref(p) {
+    pref = p;
+    localStorage.setItem(STORE, p);
+    paint();
+  }
 
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const next = htmlElement.classList.contains('dark') ? 'light' : 'dark';
-            localStorage.setItem('theme', next);
-            applyTheme(next);
-        });
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-action], [data-theme-opt]');
+    if (!el) return;
+
+    var mode = el.getAttribute('data-theme-opt');
+    if (mode) { setPref(mode); return; }
+
+    if (el.getAttribute('data-action') === 'copyEmail') {
+      var btn = el;
+      navigator.clipboard.writeText('emah84@gmail.com').then(function () {
+        btn.textContent = 'Copied ✓';
+      }, function () {
+        window.location.href = 'mailto:emah84@gmail.com';
+        btn.textContent = 'Opening…';
+      });
+      setTimeout(function () { btn.textContent = 'Copy email'; }, 2200);
     }
+  });
 
-    /* ---------- Mobile menu ---------- */
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function () {
+    if (pref === 'system') paint();
+  });
 
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        mobileNavLinks.forEach((link) => {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        });
-    }
+  var year = document.querySelector('[data-year]');
+  if (year) year.textContent = new Date().getFullYear();
 
-    /* ---------- Copy email to clipboard ---------- */
-    const copyEmailBtn = document.getElementById('copyEmailBtn');
-    const copyBtnText = document.getElementById('copyBtnText');
-    const EMAIL = 'emah84@gmail.com';
+  // Scroll-spy: highlight the section currently in view
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-nav] a'));
+  var sections = links
+    .map(function (a) { return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
 
-    if (copyEmailBtn && copyBtnText) {
-        copyEmailBtn.addEventListener('click', async () => {
-            try {
-                await navigator.clipboard.writeText(EMAIL);
-                copyBtnText.innerText = 'Copied: ' + EMAIL;
-            } catch (err) {
-                window.location.href = 'mailto:' + EMAIL;
-                copyBtnText.innerText = 'Opening email…';
-            }
-            setTimeout(() => { copyBtnText.innerText = 'Copy Email'; }, 2500);
-        });
-    }
+  if (sections.length && 'IntersectionObserver' in window) {
+    var active = '';
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) active = en.target.id; });
+      links.forEach(function (a) {
+        a.setAttribute('aria-current', a.getAttribute('href') === '#' + active ? 'true' : 'false');
+      });
+    }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+    sections.forEach(function (s) { io.observe(s); });
+  }
 
-    /* ---------- Scroll reveal ---------- */
-    const revealEls = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window && revealEls.length) {
-        const io = new IntersectionObserver((entries, obs) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-        revealEls.forEach((el) => io.observe(el));
-    } else {
-        revealEls.forEach((el) => el.classList.add('is-visible'));
-    }
-
-    /* ---------- Footer year ---------- */
-    const yearEl = document.getElementById('footerYear');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  paint();
 })();
