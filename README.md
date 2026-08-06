@@ -1,8 +1,9 @@
 # Mohamed Abdul Hameed — Portfolio
 
-Personal portfolio for a Full-Stack Developer & Automation Engineer — 14 years of
-production experience, from enterprise automation to full-stack platforms and
-real-time data visualization. CKA and Oracle Cloud certified.
+Personal portfolio for a Full-Stack Developer & Automation Engineer — learnt to code
+with the 100Devs community (Leon Noel, Cohort 2) in 2022, on top of a decade in
+operations. Built a production automation system, full-stack platforms, and real-time
+data visualizers. CKA and Oracle Cloud certified.
 
 Live: hosted on GitHub Pages · [github.com/Mohamed-AH](https://github.com/Mohamed-AH)
 
@@ -16,7 +17,7 @@ Live: hosted on GitHub Pages · [github.com/Mohamed-AH](https://github.com/Moham
 ## Sections
 
 - **About / Hero** — positioning, headline stats, and a live "status" terminal card
-- **Experience** — System Administrator & Automation Engineer, BT Applied Technology
+- **Experience** — Operations at BT Applied Technology (2011–), and full-stack via 100Devs (2022–)
 - **Projects** — two production flagships, two full-stack products, three real-time visualizers
 - **Skills** — Frontend · Backend & Cloud · Systems & DevOps
 - **Certifications** — CKA + 3× Oracle Cloud (with verification links)
@@ -30,7 +31,7 @@ Live: hosted on GitHub Pages · [github.com/Mohamed-AH](https://github.com/Moham
 | Fablewurud — rasmihassan.com | Full-stack content platform: search over 3,200+ audio / 116 PDF / 300+ articles (Node, MongoDB, Cloudflare R2, OCI, Sentry + Grafana) | [Live](https://rasmihassan.com) · [Source](https://github.com/Mohamed-AH/fablewurud) |
 | Hafiz | Bilingual Quran-memorization PWA (Node/Express, MongoDB, OAuth+JWT, on-device speech) | [Live](https://hafiz-frontend.onrender.com) · [Source](https://github.com/Mohamed-AH/quran) |
 | CRM Builder | Modular, offline-first CRM (Node/Express, MongoDB, IndexedDB, OAuth) | [Source](https://github.com/Mohamed-AH/crmbuilder) |
-| SpaceWiki | Interactive 3D orbital / astronomical directory (Three.js) | [Live](https://expospace.netlify.app/) · [Source](https://github.com/Mohamed-AH/spacewiki) |
+| SpaceWiki | 3D mission console tracking ~12,000 live satellites (Three.js, satellite.js/SGP4, CelesTrak) | [Live](https://expospace.netlify.app/) · [Source](https://github.com/Mohamed-AH/spacewiki) |
 | WhalePulse 3D | Live Bitcoin mempool visualizer (Three.js, WebSocket) | [Live](https://btcwatch.netlify.app/) · [Source](https://github.com/Mohamed-AH/whale) |
 | TransitWatch | Real-time maritime AIS dashboard on Cloudflare edge (Leaflet, Workers) | [Live](https://hormove.pages.dev/) · [Source](https://github.com/Mohamed-AH/TransitWatch) |
 
