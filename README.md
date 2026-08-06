@@ -1,8 +1,9 @@
 # Mohamed Abdul Hameed — Portfolio
 
-Personal portfolio for a Full-Stack Developer & Automation Engineer — 14 years of
-production experience, from enterprise automation to full-stack platforms and
-real-time data visualization. CKA and Oracle Cloud certified.
+Personal portfolio for a Full-Stack Developer & Automation Engineer — self-taught
+since 2022 (100Devs, Leon Noel, Cohort 2), on top of a decade in operations. Built a
+production automation system, full-stack platforms, and real-time data visualizers.
+CKA and Oracle Cloud certified.
 
 Live: hosted on GitHub Pages · [github.com/Mohamed-AH](https://github.com/Mohamed-AH)
 
@@ -16,7 +17,7 @@ Live: hosted on GitHub Pages · [github.com/Mohamed-AH](https://github.com/Moham
 ## Sections
 
 - **About / Hero** — positioning, headline stats, and a live "status" terminal card
-- **Experience** — System Administrator & Automation Engineer, BT Applied Technology
+- **Experience** — Operations at BT Applied Technology (2011–), and self-taught full-stack (100Devs, 2022–)
 - **Projects** — two production flagships, two full-stack products, three real-time visualizers
 - **Skills** — Frontend · Backend & Cloud · Systems & DevOps
 - **Certifications** — CKA + 3× Oracle Cloud (with verification links)
