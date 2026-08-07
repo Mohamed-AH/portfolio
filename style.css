@@ -83,3 +83,5 @@ a:hover{color:var(--accent)}
 .hx32:hover{color:var(--accent)}
 .hx33:hover{color:var(--accent)}
 .hx34:hover{color:var(--accent)}
+.hx35:hover{background:var(--accent);color:var(--accent-ink)}
+.hx36:hover,.hx37:hover{background:var(--surface-2);color:var(--accent)}
