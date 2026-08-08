@@ -38,7 +38,7 @@ document.documentElement.setAttribute('data-theme',r);})();
 <a href="#main" data-skip="1">Skip to content</a>
 
 <div style="min-height:100vh;background:var(--bg)">
-  <div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:0 clamp(36px,5vw,80px);max-width:1340px;margin:0 auto;padding:0 clamp(20px,4vw,60px)">
+  <div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:0 clamp(36px,5vw,80px);max-width:1340px;margin:0 auto;padding:0 clamp(20px,4vw,60px);padding-left:max(clamp(20px,4vw,60px),env(safe-area-inset-left,0px));padding-right:max(clamp(20px,4vw,60px),env(safe-area-inset-right,0px))">
 
     <aside data-sidebar="1" style="flex:1 1 230px;position:sticky;top:0;align-self:flex-start;padding:clamp(26px,3.5vw,52px) 0;background:var(--bg);z-index:20">
       <a href="#main" style="display:block;font-size:clamp(20px,2vw,24px);font-weight:700;letter-spacing:-0.02em;line-height:1.15">Mohamed<br>Abdul Hameed</a>
@@ -211,8 +211,8 @@ document.documentElement.setAttribute('data-theme',r);})();
             </figure>
             <div style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column">
               <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">Flagship · Production platform</p>
-              <h3 style="margin-top:12px;font-size:clamp(21px,2.2vw,27px);font-weight:600;letter-spacing:-0.02em">Fablewurud</h3>
-              <p style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint)">rasmihassan.com · full-stack content platform</p>
+              <h3 style="margin-top:12px;font-size:clamp(21px,2.2vw,27px);font-weight:600;letter-spacing:-0.02em">rasmihassan.com</h3>
+              <p style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint)">Full-stack content platform</p>
               <p style="margin-top:16px;font-size:15.5px;line-height:1.65;color:var(--muted);max-width:60ch">A live full-stack platform hosting and searching two scholars' archives — <span style="color:var(--text)">3,200+ audio files, 116 PDFs, and 300+ articles</span> in total — with full-text search across the whole library. Node/MongoDB backend, Google authentication, media served from Cloudflare R2 and Oracle Cloud object storage, with Sentry and Grafana wired in for error tracking and monitoring.</p>
               <ul style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted)">
                 <li style="padding:5px 9px;border:1px solid var(--border);border-radius:2px">Node.js</li>
@@ -267,8 +267,8 @@ document.documentElement.setAttribute('data-theme',r);})();
           </article>
 
           <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" class="hx38">
-            <div style="aspect-ratio:1366/646;border:1px solid var(--border);border-radius:2px;background:var(--surface-2);padding:12px">
-              <svg viewBox="0 0 680 300" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Architecture: content.md and Questions both flow into one PostgreSQL that holds the knowledge_base text and the pgvector index; retrieval feeds Gemini to return answers with sources." style="display:block;font-family:'JetBrains Mono',monospace">
+            <div style="border:1px solid var(--border);border-radius:2px;background:var(--surface-2);padding:12px;overflow:hidden">
+              <svg viewBox="0 0 680 300" width="100%" role="img" aria-label="Architecture: content.md and Questions both flow into one PostgreSQL that holds the knowledge_base text and the pgvector index; retrieval feeds Gemini to return answers with sources." style="display:block;width:100%;height:auto;font-family:'JetBrains Mono',monospace">
                 <defs>
                   <marker id="rg-arw" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
                     <path d="M0,0 L10,5 L0,10 z" style="fill:var(--faint)"></path>
@@ -295,7 +295,7 @@ document.documentElement.setAttribute('data-theme',r);})();
               </svg>
             </div>
             <p style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">AI · Retrieval-augmented</p>
-            <h3 style="margin-top:10px;font-size:20px;font-weight:600;letter-spacing:-0.02em">ragchat</h3>
+            <h3 style="margin-top:10px;font-size:20px;font-weight:600;letter-spacing:-0.02em">RAG Knowledge Base</h3>
             <p style="margin-top:5px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint)">Grounded Q&amp;A over your own documents</p>
             <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--muted)">A retrieval-augmented Q&amp;A service that returns answers grounded in the source passages it cites. PostgreSQL with pgvector holds both the text and the vector index, so there's no separate vector database. Typed and tested end to end — pytest and mypy (strict) with GitHub Actions CI.</p>
             <ul style="display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted)">
