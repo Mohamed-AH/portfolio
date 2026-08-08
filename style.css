@@ -1,28 +1,29 @@
+/* sRGB hex palette — universal support (oklch broke on older iOS Safari) */
 :root{
-  --bg:oklch(0.165 0.008 60);
-  --surface:oklch(0.205 0.009 60);
-  --surface-2:oklch(0.245 0.010 60);
-  --text:oklch(0.955 0.006 80);
-  --muted:oklch(0.715 0.014 70);
-  --faint:oklch(0.645 0.014 70);
-  --border:oklch(0.305 0.011 60);
-  --border-strong:oklch(0.40 0.014 60);
-  --accent:oklch(0.745 0.155 42);
-  --accent-ink:oklch(0.20 0.03 42);
-  --shadow:0 1px 2px oklch(0 0 0 / 0.4);
+  --bg:#110e0b;
+  --surface:#1a1613;
+  --surface-2:#241f1c;
+  --text:#f2f0ec;
+  --muted:#a9a29a;
+  --faint:#938c85;
+  --border:#332e2a;
+  --border-strong:#4e4640;
+  --accent:#fc8758;
+  --accent-ink:#22110b;
+  --shadow:0 1px 2px rgba(0,0,0,0.4);
 }
 html[data-theme="light"]{
-  --bg:oklch(0.975 0.006 80);
-  --surface:oklch(0.995 0.003 80);
-  --surface-2:oklch(0.945 0.008 80);
-  --text:oklch(0.225 0.010 60);
-  --muted:oklch(0.455 0.012 60);
-  --faint:oklch(0.495 0.012 60);
-  --border:oklch(0.885 0.008 70);
-  --border-strong:oklch(0.775 0.012 70);
-  --accent:oklch(0.545 0.160 38);
-  --accent-ink:oklch(0.99 0.01 60);
-  --shadow:0 1px 2px oklch(0 0 0 / 0.06);
+  --bg:#f9f6f2;
+  --surface:#fefdfb;
+  --surface-2:#f0ece7;
+  --text:#1f1b17;
+  --muted:#5c5550;
+  --faint:#67605b;
+  --border:#ddd8d4;
+  --border-strong:#bbb5ae;
+  --accent:#ba451c;
+  --accent-ink:#fffaf5;
+  --shadow:0 1px 2px rgba(0,0,0,0.06);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
