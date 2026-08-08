@@ -78,7 +78,7 @@ document.documentElement.setAttribute('data-theme',r);})();
         <div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:clamp(24px,4vw,48px)">
 
           <!-- Photo (auto-swaps in once images/mohamed.jpg exists; monogram until then) -->
-          <div style="flex:1 1 210px;max-width:300px;align-self:flex-start">
+          <div data-photo="1" style="flex:1 1 210px;max-width:300px;align-self:flex-start">
             <div style="position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;border:1px solid var(--border-strong);background:var(--surface-2);display:flex;align-items:center;justify-content:center">
               <span aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:clamp(40px,7vw,72px);font-weight:500;letter-spacing:0.02em;color:var(--faint)">MAH</span>
               <img src="images/mohamed.jpg" alt="Mohamed Abdul Hameed" width="880" height="1100" loading="eager" decoding="async" onerror="this.style.display='none'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top">
@@ -109,16 +109,16 @@ document.documentElement.setAttribute('data-theme',r);})();
             <!-- Résumé picker: one CV per hiring angle -->
             <div style="margin-top:22px">
               <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--faint);margin-bottom:9px">Résumé — pick the angle</p>
-              <div role="group" aria-label="Download résumé" style="display:inline-flex;flex-wrap:wrap;border:1px solid var(--border-strong);border-radius:2px;overflow:hidden">
-                <a href="resume/Mohamed-Abdul-Hameed-Full-Stack.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;font-size:14px;font-weight:600;color:var(--text)" class="hx35">Full-Stack</a>
-                <a href="resume/Mohamed-Abdul-Hameed-AI-Automation.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-left:1px solid var(--border);font-size:14px;font-weight:500;color:var(--muted)" class="hx36">AI &amp; Automation</a>
-                <a href="resume/Mohamed-Abdul-Hameed-AI-Augmented.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-left:1px solid var(--border);font-size:14px;font-weight:500;color:var(--muted)" class="hx37">AI-Augmented</a>
+              <div data-resume="1" role="group" aria-label="Download résumé" style="display:flex;flex-wrap:wrap;gap:8px">
+                <a href="resume/Mohamed-Abdul-Hameed-Full-Stack.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:2px;background:var(--accent);color:var(--accent-ink);font-size:14px;font-weight:600" class="hx35">Full-Stack</a>
+                <a href="resume/Mohamed-Abdul-Hameed-AI-Automation.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500;color:var(--text)" class="hx36">AI &amp; Automation</a>
+                <a href="resume/Mohamed-Abdul-Hameed-AI-Augmented.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500;color:var(--text)" class="hx37">AI-Augmented</a>
               </div>
             </div>
           </div>
         </div>
 
-        <dl style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;margin-top:clamp(36px,4.5vw,60px);background:var(--border);border:1px solid var(--border)">
+        <dl style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:1px;margin-top:clamp(36px,4.5vw,60px);background:var(--border);border:1px solid var(--border)">
           <div style="background:var(--bg);padding:20px 18px">
             <dt style="font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-0.03em;line-height:1">2022</dt>
             <dd style="margin:8px 0 0;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.5;color:var(--muted)">coding since · 100Devs</dd>
@@ -182,7 +182,7 @@ document.documentElement.setAttribute('data-theme',r);})();
           <p style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint)">08 projects</p>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(20px,2.5vw,32px);margin-top:clamp(26px,3vw,40px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(20px,2.5vw,32px);margin-top:clamp(26px,3vw,40px)">
 
           <article style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:clamp(20px,2.5vw,36px);padding:clamp(20px,2.5vw,28px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" class="hx8">
             <figure data-flag-media="1" style="flex:1 1 320px;margin:0;min-width:0">
@@ -267,8 +267,32 @@ document.documentElement.setAttribute('data-theme',r);})();
           </article>
 
           <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" class="hx38">
-            <div aria-hidden="true" style="aspect-ratio:1366/646;border:1px solid var(--border);border-radius:2px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;padding:18px">
-              <code style="font-family:'JetBrains Mono',monospace;font-size:clamp(11px,1.3vw,13px);line-height:1.95;color:var(--muted);text-align:center">query <span style="color:var(--faint)">&rarr;</span> embed <span style="color:var(--faint)">&rarr;</span> pgvector<br>retrieve <span style="color:var(--faint)">&rarr;</span> LLM <span style="color:var(--accent)">&rarr;</span> answer<br><span style="color:var(--faint)">+ cited source passages</span></code>
+            <div style="aspect-ratio:1366/646;border:1px solid var(--border);border-radius:2px;background:var(--surface-2);padding:12px">
+              <svg viewBox="0 0 680 300" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Architecture: content.md and Questions both flow into one PostgreSQL that holds the knowledge_base text and the pgvector index; retrieval feeds Gemini to return answers with sources." style="display:block;font-family:'JetBrains Mono',monospace">
+                <defs>
+                  <marker id="rg-arw" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+                    <path d="M0,0 L10,5 L0,10 z" style="fill:var(--faint)"></path>
+                  </marker>
+                </defs>
+                <path d="M164,60 C214,60 232,99 276,99" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#rg-arw)"></path>
+                <path d="M164,219 C214,219 232,191 276,191" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#rg-arw)"></path>
+                <path d="M422,188 C472,178 496,110 528,88" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#rg-arw)"></path>
+                <path d="M598,100 C598,132 594,158 592,184" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#rg-arw)"></path>
+                <rect x="262" y="46" width="176" height="196" rx="12" style="fill:none;stroke:var(--border-strong);stroke-width:1.5"></rect>
+                <text x="350" y="34" text-anchor="middle" style="fill:var(--accent);font-size:16px;font-weight:600">PostgreSQL</text>
+                <rect x="282" y="78" width="136" height="44" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
+                <text x="350" y="105" text-anchor="middle" style="fill:var(--muted);font-size:13.5px">knowledge_base</text>
+                <rect x="282" y="168" width="136" height="44" rx="6" style="fill:var(--surface);stroke:var(--accent)"></rect>
+                <text x="350" y="195" text-anchor="middle" style="fill:var(--text);font-size:15px">pgvector</text>
+                <rect x="12" y="37" width="152" height="46" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
+                <text x="88" y="65" text-anchor="middle" style="fill:var(--text);font-size:16px">content.md</text>
+                <rect x="12" y="196" width="152" height="46" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
+                <text x="88" y="224" text-anchor="middle" style="fill:var(--text);font-size:16px">Question</text>
+                <rect x="530" y="52" width="138" height="46" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
+                <text x="599" y="80" text-anchor="middle" style="fill:var(--text);font-size:16px">Gemini</text>
+                <rect x="512" y="186" width="156" height="46" rx="6" style="fill:var(--surface);stroke:var(--accent)"></rect>
+                <text x="590" y="214" text-anchor="middle" style="fill:var(--text);font-size:14px">answer + sources</text>
+              </svg>
             </div>
             <p style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">AI · Retrieval-augmented</p>
             <h3 style="margin-top:10px;font-size:20px;font-weight:600;letter-spacing:-0.02em">ragchat</h3>
@@ -347,7 +371,7 @@ document.documentElement.setAttribute('data-theme',r);})();
           <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent)">03</span>
           <h2 style="font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.02em">Technical toolkit</h2>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(20px,2.5vw,40px);margin-top:clamp(26px,3vw,40px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,2.5vw,40px);margin-top:clamp(26px,3vw,40px)">
           <div>
             <h3 style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">Frontend</h3>
             <ul style="margin-top:14px;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.55;color:var(--muted)">
