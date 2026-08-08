@@ -26,6 +26,12 @@ html[data-theme="light"]{
   --shadow:0 1px 2px rgba(0,0,0,0.06);
 }
 *{box-sizing:border-box}
+/* Hero: stacked on mobile; on desktop the stats sit under the photo (left column) so they stay above the fold */
+.hero-grid{display:grid;gap:clamp(20px,3vw,32px);grid-template-columns:1fr;grid-template-areas:"photo" "intro" "stats";align-items:start}
+@media (min-width:1001px){
+  .hero-grid{grid-template-columns:minmax(200px,270px) minmax(0,1fr);grid-template-areas:"photo intro" "stats intro";column-gap:clamp(28px,4vw,52px);row-gap:clamp(20px,2.5vw,28px);align-content:start}
+  .hero-grid > [style*="grid-area:intro"]{align-self:start}
+}
 html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--text);font-family:'Archivo',system-ui,sans-serif;font-synthesis-weight:none;-webkit-font-smoothing:antialiased;text-wrap:pretty;transition:background-color .25s ease,color .25s ease}
 h1,h2,h3,h4,p,ul,ol,figure{margin:0;padding:0}

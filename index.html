@@ -75,10 +75,10 @@ document.documentElement.setAttribute('data-theme',r);})();
     <main id="main" data-main="1" style="flex:999 1 560px;min-width:0;padding:clamp(26px,3.5vw,52px) 0 clamp(60px,8vw,120px)">
 
       <section id="about" style="scroll-margin-top:110px">
-        <div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:clamp(24px,4vw,48px)">
+        <div class="hero-grid">
 
           <!-- Photo (auto-swaps in once images/mohamed.jpg exists; monogram until then) -->
-          <div data-photo="1" style="flex:1 1 210px;max-width:300px;align-self:flex-start">
+          <div data-photo="1" style="grid-area:photo;max-width:300px">
             <div style="position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;border:1px solid var(--border-strong);background:var(--surface-2);display:flex;align-items:center;justify-content:center">
               <span aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:clamp(40px,7vw,72px);font-weight:500;letter-spacing:0.02em;color:var(--faint)">MAH</span>
               <img src="images/mohamed.jpg" alt="Mohamed Abdul Hameed" width="880" height="1100" loading="eager" decoding="async" onerror="this.style.display='none'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top">
@@ -86,7 +86,7 @@ document.documentElement.setAttribute('data-theme',r);})();
           </div>
 
           <!-- Intro -->
-          <div style="flex:999 1 340px;min-width:0">
+          <div style="grid-area:intro;min-width:0">
             <p style="display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)">
               <span style="width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none"></span>
               Open to remote software engineering roles
@@ -116,26 +116,26 @@ document.documentElement.setAttribute('data-theme',r);})();
               </div>
             </div>
           </div>
-        </div>
 
-        <dl style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:1px;margin-top:clamp(36px,4.5vw,60px);background:var(--border);border:1px solid var(--border)">
-          <div style="background:var(--bg);padding:20px 18px">
-            <dt style="font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-0.03em;line-height:1">2022</dt>
+          <dl style="grid-area:stats;align-self:start;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border)">
+          <div style="background:var(--bg);padding:16px 14px">
+            <dt style="font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.03em;line-height:1">2022</dt>
             <dd style="margin:8px 0 0;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.5;color:var(--muted)">coding since · 100Devs</dd>
           </div>
-          <div style="background:var(--bg);padding:20px 18px">
-            <dt style="font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-0.03em;line-height:1">3,300+</dt>
+          <div style="background:var(--bg);padding:16px 14px">
+            <dt style="font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.03em;line-height:1">3,300+</dt>
             <dd style="margin:8px 0 0;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.5;color:var(--muted)">work orders automated</dd>
           </div>
-          <div style="background:var(--bg);padding:20px 18px">
-            <dt style="font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-0.03em;line-height:1">90<span style="color:var(--accent)">%</span></dt>
+          <div style="background:var(--bg);padding:16px 14px">
+            <dt style="font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.03em;line-height:1">90<span style="color:var(--accent)">%</span></dt>
             <dd style="margin:8px 0 0;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.5;color:var(--muted)">manual time removed</dd>
           </div>
-          <div style="background:var(--bg);padding:20px 18px">
-            <dt style="font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-0.03em;line-height:1">4</dt>
+          <div style="background:var(--bg);padding:16px 14px">
+            <dt style="font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.03em;line-height:1">4</dt>
             <dd style="margin:8px 0 0;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.5;color:var(--muted)">professional certifications</dd>
           </div>
-        </dl>
+          </dl>
+        </div>
       </section>
 
       <section id="experience" style="margin-top:clamp(72px,9vw,132px);scroll-margin-top:110px">
