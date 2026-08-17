@@ -268,46 +268,57 @@ document.documentElement.setAttribute('data-theme',r);})();
 
           <article style="display:flex;flex-direction:column;padding:clamp(18px,2vw,24px);background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color .2s ease" class="hx38">
             <div style="border:1px solid var(--border);border-radius:2px;background:var(--surface-2);padding:12px;overflow:hidden">
-              <svg viewBox="0 0 680 300" width="100%" role="img" aria-label="Architecture: content.md and Questions both flow into one PostgreSQL that holds the knowledge_base text and the pgvector index; retrieval feeds Gemini to return answers with sources." style="display:block;width:100%;height:auto;font-family:'JetBrains Mono',monospace">
+              <svg viewBox="0 0 680 300" width="100%" role="img" aria-label="Pipeline: a document packet is read by the Gemini analyzer, checked by a pure gap engine against a YAML checklist, and turned into a Gap Report bucketed present, missing, deficient or needs-review — each finding cited to its source." style="display:block;width:100%;height:auto;font-family:'JetBrains Mono',monospace">
                 <defs>
-                  <marker id="rg-arw" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+                  <marker id="pa-arw" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
                     <path d="M0,0 L10,5 L0,10 z" style="fill:var(--faint)"></path>
                   </marker>
                 </defs>
-                <path d="M164,60 C214,60 232,99 276,99" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#rg-arw)"></path>
-                <path d="M164,219 C214,219 232,191 276,191" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#rg-arw)"></path>
-                <path d="M422,188 C472,178 496,110 528,88" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#rg-arw)"></path>
-                <path d="M598,100 C598,132 594,158 592,184" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#rg-arw)"></path>
-                <rect x="262" y="46" width="176" height="196" rx="12" style="fill:none;stroke:var(--border-strong);stroke-width:1.5"></rect>
-                <text x="350" y="34" text-anchor="middle" style="fill:var(--accent);font-size:16px;font-weight:600">PostgreSQL</text>
-                <rect x="282" y="78" width="136" height="44" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
-                <text x="350" y="105" text-anchor="middle" style="fill:var(--muted);font-size:13.5px">knowledge_base</text>
-                <rect x="282" y="168" width="136" height="44" rx="6" style="fill:var(--surface);stroke:var(--accent)"></rect>
-                <text x="350" y="195" text-anchor="middle" style="fill:var(--text);font-size:15px">pgvector</text>
-                <rect x="12" y="37" width="152" height="46" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
-                <text x="88" y="65" text-anchor="middle" style="fill:var(--text);font-size:16px">content.md</text>
-                <rect x="12" y="196" width="152" height="46" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
-                <text x="88" y="224" text-anchor="middle" style="fill:var(--text);font-size:16px">Question</text>
-                <rect x="530" y="52" width="138" height="46" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
-                <text x="599" y="80" text-anchor="middle" style="fill:var(--text);font-size:16px">Gemini</text>
-                <rect x="512" y="186" width="156" height="46" rx="6" style="fill:var(--surface);stroke:var(--accent)"></rect>
-                <text x="590" y="214" text-anchor="middle" style="fill:var(--text);font-size:14px">answer + sources</text>
+                <g transform="translate(0,-26)">
+                <path d="M152,136 L192,136" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#pa-arw)"></path>
+                <path d="M328,136 L368,136" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#pa-arw)"></path>
+                <path d="M430,210 L430,166" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#pa-arw)"></path>
+                <path d="M488,130 C512,126 512,124 528,122" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#pa-arw)"></path>
+                <rect x="12" y="104" width="140" height="64" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
+                <text x="82" y="132" text-anchor="middle" style="fill:var(--text);font-size:14px">Packet files</text>
+                <text x="82" y="151" text-anchor="middle" style="fill:var(--muted);font-size:10.5px">PDF · scans · imgs</text>
+                <rect x="196" y="110" width="132" height="52" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
+                <text x="262" y="132" text-anchor="middle" style="fill:var(--text);font-size:14px">Gemini</text>
+                <text x="262" y="150" text-anchor="middle" style="fill:var(--muted);font-size:11.5px">analyzer</text>
+                <rect x="372" y="110" width="116" height="52" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
+                <text x="430" y="141" text-anchor="middle" style="fill:var(--text);font-size:14px">Gap engine</text>
+                <rect x="372" y="210" width="116" height="48" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
+                <text x="430" y="232" text-anchor="middle" style="fill:var(--text);font-size:12.5px">Checklist</text>
+                <text x="430" y="249" text-anchor="middle" style="fill:var(--muted);font-size:10.5px">· YAML</text>
+                <rect x="532" y="100" width="136" height="44" rx="6" style="fill:var(--surface);stroke:var(--accent)"></rect>
+                <text x="600" y="127" text-anchor="middle" style="fill:var(--text);font-size:14px">Gap Report</text>
+                <circle cx="540" cy="167" r="4" style="fill:#35a350"></circle>
+                <text x="552" y="171" style="fill:var(--muted);font-size:12px">present</text>
+                <circle cx="540" cy="189" r="4" style="fill:#e0574e"></circle>
+                <text x="552" y="193" style="fill:var(--muted);font-size:12px">missing</text>
+                <circle cx="540" cy="211" r="4" style="fill:#cf8b3f"></circle>
+                <text x="552" y="215" style="fill:var(--muted);font-size:12px">deficient</text>
+                <circle cx="540" cy="233" r="4" style="fill:var(--faint)"></circle>
+                <text x="552" y="237" style="fill:var(--muted);font-size:12px">needs review</text>
+                <text x="552" y="258" style="fill:var(--faint);font-size:10.5px">· cited to source</text>
+                </g>
               </svg>
             </div>
-            <p style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">AI · Retrieval-augmented</p>
-            <h3 style="margin-top:10px;font-size:20px;font-weight:600;letter-spacing:-0.02em">RAG Knowledge Base</h3>
-            <p style="margin-top:5px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint)">Grounded Q&amp;A over your own documents</p>
-            <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--muted)">A retrieval-augmented Q&amp;A service that returns answers grounded in the source passages it cites. PostgreSQL with pgvector holds both the text and the vector index, so there's no separate vector database. Typed and tested end to end — pytest and mypy (strict) with GitHub Actions CI.</p>
+            <p style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">AI · Document audit</p>
+            <h3 style="margin-top:10px;font-size:20px;font-weight:600;letter-spacing:-0.02em">Packet Auditor</h3>
+            <p style="margin-top:5px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint)">Audit a document packet against a checklist</p>
+            <p style="margin-top:14px;font-size:15px;line-height:1.6;color:var(--muted)">Give it a packet of documents and a checklist; get back a structured Gap Report — what's present, missing, deficient, or needs a human's eye — with every finding cited to its source page. Google Gemini reads the packet (multimodal, one pass per file) and a pure Python gap engine checks it against the rules. New verticals (customs, procurement, healthcare…) are declarative YAML, not code.</p>
             <ul style="display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted)">
               <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">Python</li>
               <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">FastAPI</li>
-              <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">LangChain (LCEL)</li>
-              <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">pgvector</li>
-              <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">Cohere / Gemini</li>
-              <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">Docker</li>
+              <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">Google Gemini</li>
+              <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">Multimodal</li>
+              <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">PostgreSQL</li>
+              <li style="padding:4px 8px;border:1px solid var(--border);border-radius:2px">YAML rules</li>
             </ul>
             <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:18px">
-              <a href="https://github.com/Mohamed-AH/postgresslangchainchat" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx39">View source</a>
+              <a href="https://packetaudit-ulfq.onrender.com/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx39">Live demo</a>
+              <a href="https://github.com/Mohamed-AH/rag" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--border-strong);border-radius:2px;font-size:14px;font-weight:500" class="hx39">Source</a>
             </div>
           </article>
 
@@ -403,7 +414,7 @@ document.documentElement.setAttribute('data-theme',r);})();
             <h3 style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)">Automation &amp; AI</h3>
             <ul style="margin-top:14px;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.55;color:var(--muted)">
               <li style="padding-bottom:10px;border-bottom:1px solid var(--border)">LLM API integration (Claude, Gemini)</li>
-              <li style="padding-bottom:10px;border-bottom:1px solid var(--border)">RAG, LangChain, pgvector</li>
+              <li style="padding-bottom:10px;border-bottom:1px solid var(--border)">RAG, multimodal document extraction</li>
               <li style="padding-bottom:10px;border-bottom:1px solid var(--border)">PDF extraction &amp; field mapping</li>
               <li style="padding-bottom:10px;border-bottom:1px solid var(--border)">Browser automation, VBScript, AutoIt</li>
             </ul>
