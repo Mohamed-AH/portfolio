@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+(function(){var p=localStorage.getItem('mah-theme')||'system';
+var r=p==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):p;
+document.documentElement.setAttribute('data-theme',r);})();
+</script>
+<title>JDE Work Order Automation — Architecture · Mohamed Abdul Hameed</title>
+<meta name="description" content="How the JDE Work Order Automation system works: a self-built pipeline that takes Oracle JD Edwards work orders from PDF to posted records with Claude-API extraction, five integrated components, and validation/retry/logging at every stage.">
+<meta name="theme-color" content="#211d1a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f4f0" media="(prefers-color-scheme: light)">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23211d1a'/><text x='16' y='23' font-family='system-ui,sans-serif' font-size='19' font-weight='700' fill='%23e8763f' text-anchor='middle'>M</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a href="#main" data-skip="1">Skip to content</a>
+
+<div class="doc-wrap">
+  <nav class="doc-top">
+    <a href="./" class="doc-back">← Back to portfolio</a>
+    <span class="doc-brand">Mohamed<span style="color:var(--accent)">.AH</span></span>
+  </nav>
+
+  <main id="main">
+    <p class="doc-eyebrow">Flagship · Production automation · walkthrough</p>
+    <h1 class="doc-h1">JDE Work Order Automation</h1>
+    <p class="doc-lead">A self-built pipeline that took a manual Oracle JD Edwards work-order process to 90% hands-off — deployed and running in production at BT Applied Technology. This is the write-up; the code is proprietary.</p>
+
+    <ul class="doc-stats">
+      <li><b>3,300+</b><span>orders processed</span></li>
+      <li><b>90%</b><span>manual time removed</span></li>
+      <li><b>5</b><span>integrated components</span></li>
+      <li><b>Prod</b><span>running weekly</span></li>
+    </ul>
+
+    <h2 class="doc-h2">The problem</h2>
+    <p>In a construction-operations role, work orders arrive as documents — BOQs, material submittals, supplier paperwork — and every one had to be keyed into Oracle JD Edwards EnterpriseOne by hand: create the work order, enter quantities, issue materials, file the documents. It's slow, repetitive, and error-prone at volume, and it scales only by adding people.</p>
+    <p>I taught myself enough to automate my own department's workflow end to end. Nobody assigned it; it started as a way to get my own work done faster and became a production system.</p>
+
+    <h2 class="doc-h2">The pipeline</h2>
+    <p>One combined PDF (or a stack of files) goes in; posted JD Edwards records come out. A <strong>Claude-API</strong> pass reads each document and extracts the fields; a mapping layer turns them into JDE inputs; and browser automation drives the ERP screens to create the work order, post quantities, issue materials, and archive the paperwork.</p>
+
+    <div class="doc-figure">
+      <svg viewBox="0 0 720 210" width="100%" role="img" aria-label="Pipeline: PDF documents are read by Claude for extraction, mapped to JD Edwards fields, then browser automation creates the work order, posts quantities, issues materials and archives documents into Oracle JD Edwards." style="display:block;width:100%;height:auto;font-family:'JetBrains Mono',monospace">
+        <defs>
+          <marker id="jd-arw" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--faint)"></path></marker>
+        </defs>
+        <path d="M150,60 L190,60" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#jd-arw)"></path>
+        <path d="M330,60 L370,60" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#jd-arw)"></path>
+        <path d="M486,60 L526,60" style="fill:none;stroke:var(--faint);stroke-width:2" marker-end="url(#jd-arw)"></path>
+        <rect x="14" y="36" width="136" height="48" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
+        <text x="82" y="58" text-anchor="middle" style="fill:var(--text);font-size:14px">PDF packet</text>
+        <text x="82" y="75" text-anchor="middle" style="fill:var(--muted);font-size:10.5px">scans · exports</text>
+        <rect x="192" y="36" width="138" height="48" rx="6" style="fill:var(--surface);stroke:var(--accent)"></rect>
+        <text x="261" y="58" text-anchor="middle" style="fill:var(--text);font-size:14px">Claude</text>
+        <text x="261" y="75" text-anchor="middle" style="fill:var(--muted);font-size:10.5px">extract + classify</text>
+        <rect x="372" y="36" width="114" height="48" rx="6" style="fill:var(--surface);stroke:var(--border-strong)"></rect>
+        <text x="429" y="58" text-anchor="middle" style="fill:var(--text);font-size:13px">Field mapping</text>
+        <rect x="528" y="24" width="178" height="150" rx="8" style="fill:none;stroke:var(--border-strong);stroke-width:1.5"></rect>
+        <text x="617" y="16" text-anchor="middle" style="fill:var(--accent);font-size:12.5px;font-weight:600">Oracle JD Edwards</text>
+        <text x="540" y="66" style="fill:var(--muted);font-size:12px">› create work order</text>
+        <text x="540" y="92" style="fill:var(--muted);font-size:12px">› post quantities</text>
+        <text x="540" y="118" style="fill:var(--muted);font-size:12px">› issue materials</text>
+        <text x="540" y="144" style="fill:var(--muted);font-size:12px">› archive documents</text>
+      </svg>
+    </div>
+
+    <h2 class="doc-h2">The five components</h2>
+    <p>The system is modular — five components, each with a single responsibility, so a failure or a format change is isolated to one stage instead of taking down the run:</p>
+    <ol class="doc-steps">
+      <li><b>PDF processing</b> — ingest a combined packet or several files; Claude reads each document and returns structured fields with the values it found.</li>
+      <li><b>Work-order creation</b> — map the extracted fields to JDE and create the work-order header.</li>
+      <li><b>Material management</b> — attach and reconcile the materials against the order.</li>
+      <li><b>Inventory processing</b> — post quantity entries and inventory adjustments.</li>
+      <li><b>Document handling</b> — archive the source paperwork against the created records for the audit trail.</li>
+    </ol>
+
+    <h2 class="doc-h2">Reliability</h2>
+    <p>Because it drives a real ERP against real inventory, it's built to fail safe. Every stage carries <strong>validation, retry logic, and logging</strong>; the browser automation has explicit error handling so a flaky screen or an unexpected field is caught and retried rather than posting bad data. Low-confidence reads surface for a human instead of guessing.</p>
+
+    <h2 class="doc-h2">Results &amp; stack</h2>
+    <p>Over roughly eleven months it processed <strong>3,300+ work orders with a 90% reduction in manual handling time</strong>, and it still runs in production week to week. Built with <strong>Python</strong> and <strong>JavaScript</strong> for the pipeline and mapping, <strong>VBScript</strong> and <strong>AutoIt</strong> for desktop/ERP automation, the <strong>Claude API</strong> for extraction, and browser automation to drive JD Edwards.</p>
+    <ul class="doc-tags">
+      <li>Python</li><li>JavaScript</li><li>VBScript</li><li>AutoIt</li><li>Claude API</li><li>Browser automation</li><li>Oracle JD Edwards</li>
+    </ul>
+
+    <h2 class="doc-h2">Why it isn't public</h2>
+    <p>It runs against a live enterprise system and its documents contain company data, so the repository is private. This page is the walkthrough; I'm glad to talk through the design, the mapping layer, and the reliability model on a call.</p>
+
+    <div class="doc-cta">
+      <a href="https://cal.com/mojed" target="_blank" rel="noopener noreferrer" class="doc-btn-primary hx30">Book a call <span style="font-family:'JetBrains Mono',monospace">→</span></a>
+      <a href="./" class="doc-btn hx31">← Back to portfolio</a>
+    </div>
+  </main>
+
+  <footer class="doc-foot">© <span data-year="1">2026</span> Mohamed Abdul Hameed</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
