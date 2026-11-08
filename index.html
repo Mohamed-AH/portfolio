@@ -224,15 +224,16 @@ document.documentElement.setAttribute('data-theme',r);})();
               <a href="https://www.drwasiullah.com/" target="_blank" rel="noopener noreferrer" aria-label="Open drwasiullah.com" class="shot-link"><img class="shot" src="images/drwasiullah.webp" alt="The drwasiullah.com home page: the Sheikh's name in large Arabic calligraphy over a patterned cream background, with a lesson search box below." loading="lazy" decoding="async" width="1366" height="646"></a>
             </figure>
             <div class="feature-body">
-              <p class="eyebrow">Static site · Admin portal</p>
+              <p class="eyebrow">Full-stack · Cloudflare</p>
               <h3 class="feature-title">drwasiullah.com</h3>
               <p class="card-sub">Lesson library for Sheikh Wasiullah Abbas</p>
-              <p class="feature-desc">His lessons were spread across a shared YouTube channel, an older WordPress site and archive.org. The site brings <span class="hl">about 3,300 lessons, 24 books and 29 series</span> together, each on its own pre-rendered page from a dependency-free Node build, with search that ignores Arabic diacritics. The team edits through a password-less admin portal with roles, an audit log and a Publish button, so the public site never touches the database. It runs on Cloudflare's free tier and is tested down to an iPhone 7.</p>
+              <p class="feature-desc">His lessons were spread across a shared YouTube channel, an older WordPress site and archive.org. The site brings <span class="hl">about 3,300 lessons, 24 books and 29 series</span> together, with search that ignores Arabic diacritics. Public pages are pre-rendered by a dependency-free Node build, and audio and PDFs are hosted on R2. Behind it is an admin portal (a Worker with a D1 database) where the team signs in with Google or an emailed code, then uploads audio, edits lessons, and publishes, with roles, an audit log, reports and nightly backups. It runs on Cloudflare's free tier and is tested down to an iPhone 7.</p>
               <ul class="tags">
                 <li class="tag">Node (no dependencies)</li>
                 <li class="tag">Cloudflare Workers + D1</li>
                 <li class="tag">R2 storage</li>
                 <li class="tag">GitHub Actions</li>
+                <li class="tag">Cloudflare Access</li>
                 <li class="tag">Python ingest</li>
               </ul>
               <div class="card-actions">
