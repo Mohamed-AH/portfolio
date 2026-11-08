@@ -184,3 +184,13 @@ a:hover{color:var(--accent)}
 .card-sm-links a{color:var(--muted);display:inline-flex;align-items:center;min-height:32px}
 .card-sm-links a:hover{color:var(--accent)}
 @media (max-width:1000px){.feature-media{flex:1 1 100%}}
+
+/* ---------- Experience, toolkit, sidebar ---------- */
+.dash-list{margin-top:16px;display:flex;flex-direction:column;gap:12px;max-width:62ch;font-size:15.5px;line-height:1.65;color:var(--muted)}
+.dash-item{display:flex;gap:12px}
+.dash{color:var(--accent);font-family:'JetBrains Mono',monospace;flex:none}
+.exp-org{margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.6;color:var(--faint)}
+.tk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,3vw,40px) clamp(24px,4vw,56px);margin-top:clamp(26px,3vw,40px)}
+@media (max-width:640px){.tk-grid{grid-template-columns:1fr}}
+/* keep the theme switch on its own row so GitHub and LinkedIn sit together */
+@media (min-width:1001px){[data-sidebar-foot] > [role="group"]{flex:0 0 auto;margin-right:100%}}
