@@ -194,3 +194,4 @@ a:hover{color:var(--accent)}
 @media (max-width:640px){.tk-grid{grid-template-columns:1fr}}
 /* keep the theme switch on its own row so GitHub and LinkedIn sit together */
 @media (min-width:1001px){[data-sidebar-foot] > [role="group"]{flex:0 0 auto;margin-right:100%}}
+.ar{font-family:system-ui,"Segoe UI","Noto Naskh Arabic","Geeza Pro",sans-serif;letter-spacing:0;unicode-bidi:isolate}
