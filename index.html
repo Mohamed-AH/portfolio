@@ -179,7 +179,7 @@ document.documentElement.setAttribute('data-theme',r);})();
         <div class="sec-head">
           <span class="sec-num">02</span>
           <h2 class="sec-h2">Selected work</h2>
-          <p class="sec-meta">08 projects</p>
+          <p class="sec-meta">11 projects</p>
         </div>
 
         <div class="work-grid">
@@ -305,11 +305,12 @@ document.documentElement.setAttribute('data-theme',r);})();
 
         </div>
 
-        <div class="group-head">
+        <div id="study" class="group-head">
           <span class="sec-num">+</span>
-          <h3 class="group-title">More projects</h3>
-          <p class="sec-meta">Full-stack · bilingual · offline-first</p>
+          <h3 class="group-title">Study companions</h3>
+          <p class="sec-meta">English · Arabic · sourced</p>
         </div>
+        <p class="group-intro">Bilingual sites that walk through a history or a single podcast conversation, chapter by chapter. Every paragraph is traced back to its source, each chapter has a small interactive tool to try the idea, and the text is plain Markdown so it is easy to correct. The podcast companions are independent study aids, not affiliated with the shows or their guests.</p>
 
         <div class="work-grid">
 
@@ -332,6 +333,77 @@ document.documentElement.setAttribute('data-theme',r);})();
               <div class="card-actions">
                 <a href="https://imamabdulaziz.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live site</a>
                 <a href="https://github.com/Mohamed-AH/benchai" target="_blank" rel="noopener noreferrer" class="btn">Source</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <a href="https://claiming-ideas.pages.dev/" target="_blank" rel="noopener noreferrer" aria-label="Open Claiming Ideas" class="shot-link"><img class="shot" src="images/claimingideas.webp" alt="The Claiming Ideas home page: the title over a light grid background, with a chart of research payback and a button to watch the episode." loading="lazy" decoding="async" width="1366" height="646"></a>
+            <p class="card-eyebrow">Study companion · 8 chapters</p>
+            <h3 class="card-title">Claiming Ideas</h3>
+            <p class="card-sub">Research into business value, from one podcast episode</p>
+            <p class="card-desc">A companion to an episode with Salman Butt, co-founder of Salla and KnowledgeX, on how research becomes business value. Eight chapters follow the episode's own markers, with each key moment linked to its minute in the video, the idea explained in plain words, outside sources cited inline, and a small tool to try it, such as a forecasting playground or a route-to-market chooser. Includes a glossary and a sources page.</p>
+            <ul class="tags">
+              <li class="tag">Node static build</li>
+              <li class="tag">Markdown</li>
+              <li class="tag">Vanilla JS widgets</li>
+              <li class="tag">Cloudflare Pages</li>
+              <li class="tag">EN / AR</li>
+            </ul>
+            <div class="card-actions">
+              <a href="https://claiming-ideas.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn">Live site</a>
+              <a href="https://github.com/Mohamed-AH/research" target="_blank" rel="noopener noreferrer" class="btn">Source</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <a href="https://lifeonreplay.pages.dev/en/" target="_blank" rel="noopener noreferrer" aria-label="Open Life on Replay" class="shot-link"><img class="shot" src="images/lifeonreplay.webp" alt="The Life on Replay home page: the title on a warm background, a button to watch the episode, and a timeline of the episode's chapters." loading="lazy" decoding="async" width="1366" height="646"></a>
+            <p class="card-eyebrow">Study companion · 12 chapters</p>
+            <h3 class="card-title">Life on Replay</h3>
+            <p class="card-sub">Facing life's crises, from one podcast episode</p>
+            <p class="card-desc">A companion to a Petroly podcast episode in which Ahmed Attar talks with Dr. Saad Al-Arifi about dealing with life's crises. Twelve chapters, ten small tools, a glossary and a printable personal crisis kit that is saved only in the visitor's browser. Behind it, 183 facts are each tied to a line of the transcript, with checks on every change. The repository doubles as a starter, with a written playbook for the next episode.</p>
+            <ul class="tags">
+              <li class="tag">Node static build</li>
+              <li class="tag">Fact checks</li>
+              <li class="tag">Vanilla JS widgets</li>
+              <li class="tag">Cloudflare Pages</li>
+              <li class="tag">EN / AR</li>
+            </ul>
+            <div class="card-actions">
+              <a href="https://lifeonreplay.pages.dev/en/" target="_blank" rel="noopener noreferrer" class="btn">Live site</a>
+              <a href="https://github.com/Mohamed-AH/fight" target="_blank" rel="noopener noreferrer" class="btn">Source</a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="group-head">
+          <span class="sec-num">+</span>
+          <h3 class="group-title">More projects</h3>
+          <p class="sec-meta">Full-stack · offline-first</p>
+        </div>
+
+        <div class="work-grid">
+
+          <article class="feature">
+            <figure class="feature-media">
+              <a href="https://aladhkaar.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Adhkar Maker" class="shot-link"><img class="shot" src="images/adhkar.webp" alt="The Adhkar Maker editor: settings for time of day, page size, text size and columns on the left, and a live preview of a decorated adhkar card on the right." loading="lazy" decoding="async" width="1366" height="646"></a>
+            </figure>
+            <div class="feature-body">
+              <p class="eyebrow">Web app · PWA · 8 languages</p>
+              <h3 class="feature-title">Adhkar Maker</h3>
+              <p class="card-sub">aladhkaar.com · make your own morning and evening adhkar card</p>
+              <p class="feature-desc">Choose from 27 adhkar with translation, counts and sources, drag them into your order, and pick a design: ready-made styles, colour themes, patterns, borders and self-hosted Arabic fonts. Print it at A5 to A3, save it as a PDF or image sized for phones and social posts, or share a short link that opens the same card. The interface comes in eight languages with right-to-left layout where needed, and it installs and works offline. A small Cloudflare backend handles share links and a suggestion form with spam protection and rate limits.</p>
+              <ul class="tags">
+                <li class="tag">Vanilla JS</li>
+                <li class="tag">Cloudflare Pages Functions</li>
+                <li class="tag">D1</li>
+                <li class="tag">jsPDF</li>
+                <li class="tag">PWA</li>
+              </ul>
+              <div class="card-actions">
+                <a href="https://aladhkaar.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live site</a>
+                <a href="https://github.com/Mohamed-AH/aladhkaar" target="_blank" rel="noopener noreferrer" class="btn">Source</a>
               </div>
             </div>
           </article>
